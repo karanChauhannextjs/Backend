@@ -1,0 +1,23 @@
+{
+  "name": "learning-backend",
+  "version": "1.0.0",
+  "description": "I am learning backend through watching chai aur backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "nothing"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karanChauhannextjs/Backend.git"
+  },
+  "keywords": [
+    "ctrl",
+    "c"
+  ],
+  "author": "karan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karanChauhannextjs/Backend/issues"
+  },
+  "homepage": "https://github.com/karanChauhannextjs/Backend#readme"
+}
