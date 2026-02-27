@@ -8,7 +8,7 @@
     "test": "echo \"No test specified\"",
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
-    "build": "npm install"
+    "build": "npm build"
   },
   "repository": {
     "type": "git",
