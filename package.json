@@ -5,23 +5,17 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "nothing",
-    "dev": "nodemon src/index.js"
+    "test": "echo \"No test specified\"",
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "build": "npm install"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/karanChauhannextjs/Backend.git"
   },
-  "keywords": [
-    "ctrl",
-    "c"
-  ],
   "author": "karan",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/karanChauhannextjs/Backend/issues"
-  },
-  "homepage": "https://github.com/karanChauhannextjs/Backend#readme",
   "devDependencies": {
     "nodemon": "^3.1.11",
     "prettier": "^3.8.1"

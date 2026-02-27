@@ -1,5 +1,7 @@
 import dotenv from "dotenv";
 import { Router } from "express";
+import { verifyJwt } from "../middlewares/auth.middleware.js";
+import upload from "../middlewares/multer.middleware.js";
 import {
   changeCurrentPassword,
   getCurrentUserDetails,
@@ -12,8 +14,7 @@ import {
   updateUserAvatar,
   updateUserCoverImage,
 } from "../controllers/user.controller.js";
-import { verifyJwt } from "../middlewares/auth.middleware.js";
-import upload from "../middlewares/multer.middleware.js";
+
 dotenv.config();
 const router = Router();
 
