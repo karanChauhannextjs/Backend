@@ -1,10 +1,3 @@
-// import mongoose, { isValidObjectId } from "mongoose";
-// import { Video } from "../models/video.model.js";
-// import { User } from "../models/user.model.js";
-// import { ApiError } from "../utils/ApiError.js";
-// import { ApiResponse } from "../utils/ApiResponse.js";
-
-// import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { Video } from "../models/video.model.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
@@ -12,43 +5,43 @@ import { asyncHandler } from "../utils/asyncHandlers.js";
 import { uploadOnCloudinary } from "../utils/fileUpload.js";
 
 const getAllVideos = asyncHandler(async (req, res) => {
-  //   const {
-  //     page = 1,
-  //     limit = 10,
-  //     query = "",
-  //     sortBy = "createdAt",
-  //     sortType = "desc",
-  //     userId,
-  //   } = req.query;
-  //   // Convert to numbers
-  //   const pageNumber = parseInt(page);
-  //   const limitNumber = parseInt(limit);
-  //   const skip = (pageNumber - 1) * limitNumber;
-  //   // Build filter object
-  //   const filter = {};
-  //   // 🔍 Search by title (case insensitive)
-  //   if (query) {
-  //     filter.title = { $regex: query, $options: "i" };
-  //   }
-  //   // 👤 Filter by user
-  //   if (userId && mongoose.Types.ObjectId.isValid(userId)) {
-  //     filter.owner = new mongoose.Types.ObjectId(userId);
-  //   }
-  //   // 🔄 Sorting
-  //   const sortOrder = sortType === "asc" ? 1 : -1;
-  //   const videos = await Video.find(filter)
-  //     .sort({ [sortBy]: sortOrder })
-  //     .skip(skip)
-  //     .limit(limitNumber);
-  //   const totalVideos = await Video.countDocuments(filter);
-  //   res.status(200).json({
-  //     success: true,
-  //     page: pageNumber,
-  //     limit: limitNumber,
-  //     totalVideos,
-  //     totalPages: Math.ceil(totalVideos / limitNumber),
-  //     data: videos,
-  //   });
+  const {
+    page = 1,
+    limit = 10,
+    query = "",
+    sortBy = "createdAt",
+    sortType = "desc",
+    userId,
+  } = req.query;
+  // Convert to numbers
+  const pageNumber = parseInt(page);
+  const limitNumber = parseInt(limit);
+  const skip = (pageNumber - 1) * limitNumber;
+  // Build filter object
+  const filter = {};
+  // 🔍 Search by title (case insensitive)
+  if (query) {
+    filter.title = { $regex: query, $options: "i" };
+  }
+  // 👤 Filter by user
+  if (userId && mongoose.Types.ObjectId.isValid(userId)) {
+    filter.owner = new mongoose.Types.ObjectId(userId);
+  }
+  // 🔄 Sorting
+  const sortOrder = sortType === "asc" ? 1 : -1;
+  const videos = await Video.find(filter)
+    .sort({ [sortBy]: sortOrder })
+    .skip(skip)
+    .limit(limitNumber);
+  const totalVideos = await Video.countDocuments(filter);
+  res.status(200).json({
+    success: true,
+    page: pageNumber,
+    limit: limitNumber,
+    totalVideos,
+    totalPages: Math.ceil(totalVideos / limitNumber),
+    data: videos,
+  });
 });
 
 const publishAVideo = asyncHandler(async (req, res) => {
